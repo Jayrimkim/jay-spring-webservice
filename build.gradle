@@ -38,6 +38,10 @@ dependencies {
 
     //API_test
     testImplementation('org.springframework.security:spring-security-test')
+
+    //mariaDB
+    implementation('org.mariadb.jdbc:mariadb-java-client')
+
 }
 
 test {
