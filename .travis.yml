@@ -18,3 +18,8 @@ notifications:
   email :
     recipients:
       -jayrimkim@naver.com
+
+
+#에러 해결_권한 추가
+before_script :
+  - chmod +x gradlew
