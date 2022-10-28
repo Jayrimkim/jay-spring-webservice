@@ -18,6 +18,7 @@
     }
 
     body{
+    padding-top:70px;
     font-family: 'Dolbomche_B';
     }
     p{
@@ -26,41 +27,109 @@
     div{
     font-family: 'Dolbomche_B';
     }
+    html, body {
+  height: 100%;
+  margin: 0;
+
+}
+
+<!--fixed navbar-->
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+<!--footer-->
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+<!--media query-->
+
+<!--화면 너비가 0 ~ 1280px : 데스크탑-->
+@media (max-width: 1280px) {
+            #container{
+                  margin-left: 25%;
+                  margin-right: 25%;}
+}
+
+<!--화면 너비가 0 ~ 1024px : 데스크탑-->
+@media (max-width: 1024px){
+        #container{
+           margin-left: 20%;
+                  margin-right: 20%;}
+}
+<!--화면 너비가 0 ~ 960px : 노트북-->
+@media (max-width: 960px){
+        #container{
+    margin-left: 20%;
+                  margin-right: 20%;}
+}
+<!--화면 너비가 0 ~ 768px : 태블릿-->
+@media (max-width: 768px){
+          #container{margin-left: 10%;
+                  margin-right: 10%;}
+}
+<!--화면 너비가 0 ~ 576px : 모바일 -->
+@media (max-width: 574px){
+
+}
 
     </style>
-
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Spring knit &#129526;</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">게시판 &#128221;<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        뜨개질 계산기&#128105;&#8205;&#128187;
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">게이지 계산기</a>
+                        <a class="dropdown-item" href="#">가방바닥 시작코 계산기</a>
+                        <a class="dropdown-item" href="#">체커보드 시작코 계산기</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">단수 체크</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">개발 상세</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6ffa6;">
-    <a class="navbar-brand" href="#">Spring knit &#129526;</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">게시판 &#128221;<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    뜨개질 계산기&#128105;&#8205;&#128187;
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">게이지 계산기</a>
-                    <a class="dropdown-item" href="#">가방바닥 시작코 계산기</a>
-                    <a class="dropdown-item" href="#">체커보드 시작코 계산기</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">단수 체크</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">개발 상세</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
+<body class="d-flex flex-column h-100">
