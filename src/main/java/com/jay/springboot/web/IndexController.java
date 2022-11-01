@@ -39,4 +39,14 @@ public class IndexController {
 
         return "posts-update";
     }
+
+    /*계산기 맵핑*/
+    @GetMapping("/cal/gauge")
+    public String calGauge(){ return "cal-gauge";}
+
+    @GetMapping("/cal/bag")
+    public String calBag(){ return "cal-bag";}
+
+    @GetMapping("/cal/check")
+    public String calCheck(){ return "cal-check";}
 }
