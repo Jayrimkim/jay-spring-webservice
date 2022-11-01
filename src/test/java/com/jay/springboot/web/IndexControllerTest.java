@@ -26,13 +26,4 @@ public class IndexControllerTest {
         assertThat(body).contains("스프링 부트로 시작하는 웹 서비스");
     }
 
-    @Test
-    public void 계산기_로딩(){
-        //when
-        String body = this.restTemplate.getForObject("/cal/gauge",String.class);
-
-        //then
-        assertThat(body).contains("게이지 계산기입니다");
-    }
-
 }
