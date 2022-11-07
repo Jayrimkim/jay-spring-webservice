@@ -27,11 +27,13 @@ public class IndexController {
         return "index";
     }
 
+    /*게시글 작성*/
     @GetMapping("/posts/save")
     public String postsSave(){
         return "posts-save";
     }
 
+    /*게시글 수정*/
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model){
         PostsResponseDto dto=postsService.findById(id);
@@ -39,6 +41,14 @@ public class IndexController {
 
         return "posts-update";
     }
+
+    /*게시글 상세 조회*/
+    @GetMapping("/posts/read/{id}")
+    public String postsRead(@PathVariable Long id, Model model){
+    model.addAttribute("post",postsService.PostsReadResponseDto(id));
+        return "posts-read";
+    }
+
 
     /*계산기 맵핑*/
     @GetMapping("/cal/gauge")
