@@ -27,8 +27,8 @@ public class Reply extends BaseTimeEntity {
     @JoinColumn(name = "userId")
     private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name="postsId"))
+    @ManyToOne
+    @JoinColumn(name = "postsId")
     private Posts posts;
 
     @Column
