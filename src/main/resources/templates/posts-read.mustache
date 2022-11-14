@@ -1,0 +1,35 @@
+{{>layout/header}}
+<div id="container" class="container col-md-8 col-lg-8">
+    <!--게시글 조회-->
+    <div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="title">글 번호</label>
+                    <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" value="{{post.title}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="author"> 작성자 </label>
+                    <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="content"> 내용 </label>
+                    <textarea readonly class="form-control" id="content">{{post.content}}</textarea>
+                </div>
+            </form>
+            <a href="/posts/update/{{id}}" role="button" class="btn btn-secondary">수정하기</a>
+            <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        </div>
+    </div>
+
+    <!--댓글 목록-->
+    {{>reply-read}}
+
+    <!--댓글 작성-->
+    {{>reply-save}}
+</div>
+{{>layout/footer}}
