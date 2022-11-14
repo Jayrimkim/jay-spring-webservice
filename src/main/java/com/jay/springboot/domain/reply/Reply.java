@@ -24,10 +24,6 @@ public class Reply extends BaseTimeEntity {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
-
-    @ManyToOne
     @JoinColumn(name = "postsId")
     private Posts posts;
 
