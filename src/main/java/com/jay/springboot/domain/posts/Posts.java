@@ -1,15 +1,16 @@
 package com.jay.springboot.domain.posts;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jay.springboot.domain.BaseTimeEntity;
+import com.jay.springboot.domain.reply.Reply;
+import com.jay.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Getter// 클래스 내 모든 필드의 Getter 메소드를 자동 생성
@@ -28,6 +29,16 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    //댓글
+    @ManyToOne(fetch=FetchType.LAZY)//무한 참조 방지
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "posts",fetch=FetchType.EAGER, cascade=CascadeType.REMOVE) //EAGER 전략에 의해 POSTS가 불러질때 REPLY도 불러짐
+    @OrderBy("id asc")// 댓글 오름차순 정렬
+    //posts와 reply 무한 참조 방지
+    private List<Reply> reply; //외래키 아니고 DB에는 없는데 select 할 때 패치해서 들고 옴.
+
     @Builder //해당 클래스의 빌더 패턴 클래스를 생성, 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함
     public Posts(String title, String content, String author) {
         this.title = title;
@@ -36,6 +47,7 @@ public class Posts extends BaseTimeEntity {
 
     }
 
+    /*게시글 수정*/
     public void update(String title, String content){
         this.title=title;
         this.content=content;

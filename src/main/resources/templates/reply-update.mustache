@@ -1,0 +1,21 @@
+{{>layout/header}}
+
+<div id="container">
+    <h1>댓글 수정</h1>
+<div>
+    <div class="card">
+        <form>
+            <div class="card-body">
+                <input type="hidden" id="commentId" value="{{reply.id}}">
+
+                <textarea id="comment" class="form-control" row="1" value="{{reply.comment}}"></textarea>
+            </div>
+            <div class="card-footer">
+                <button type="button" id="btn-reply-update" class="btn btn-primary">수정</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+    {{>layout/footer}}

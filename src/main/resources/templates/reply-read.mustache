@@ -1,0 +1,23 @@
+<div>
+    <div class="card">
+        <div class="card-header">댓글 목록 : {{#reply.size}}{{reply.size}}{{/reply.size}}명의 니터가 댓글을 달았습니다.</div>
+        <ul id="reply--box" class="list-group">
+            <input type="hidden" id="postsId" value="{{post.id}}">
+
+            {{#reply}}
+                <li id="reply--1" class="list-group-item d-flex justify-content-between">
+                    <div class="d-flex ">
+
+                    </div>
+                    <div>
+                        <input type="hidden" id="commentId" value="{{id}}">
+                        {{comment}}
+                        {{^reply}}"댓글이 없습니다. 지금 첫 댓글을 달아주세요!" {{/reply}}
+                    </div>
+                    <a href="/reply/update/{{id}}" role="button" class="badge">수정</a>
+                    <button id="btn-reply-delete" class="badge">삭제</button>
+                </li>
+            {{/reply}}
+        </ul>
+    </div>
+</div>

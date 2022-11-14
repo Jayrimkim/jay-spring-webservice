@@ -61,5 +61,4 @@ public class PostsService {
     public Posts PostsReadResponseDto(Long id) {
         return postsRepository.findById(id).get();
     }
-
 }
