@@ -3,8 +3,11 @@ package com.jay.springboot.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jay.springboot.domain.posts.Posts;
 import com.jay.springboot.domain.posts.PostsRepository;
+import com.jay.springboot.domain.reply.Reply;
+import com.jay.springboot.domain.reply.ReplyRepository;
 import com.jay.springboot.web.dto.PostsSaveRequestDto;
 import com.jay.springboot.web.dto.PostsUpdateRequestDto;
+import com.jay.springboot.web.dto.ReplyRequestDto;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,6 +45,9 @@ public class PostsApiControllerTest {
 
     @Autowired
     private PostsRepository postsRepository;
+
+    @Autowired
+    private ReplyRepository replyRepository;
 
     @Autowired
     private WebApplicationContext context;
@@ -119,4 +125,5 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
+
 }
