@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 public class ReplyRequestDto {
     private Long id;
     private String comment;
-    private User user;
     private Posts posts;
 
 
@@ -24,7 +23,6 @@ public class ReplyRequestDto {
         Reply reply = Reply.builder()
                 .id(id)
                 .comment(comment)
-                .user(user)
                 .posts(posts)
                 .build();
 

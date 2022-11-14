@@ -29,11 +29,6 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
-    //댓글
-    @ManyToOne(fetch=FetchType.LAZY)//무한 참조 방지
-    @JoinColumn(name="user_id")
-    private User user;
-
     @OneToMany(mappedBy = "posts",fetch=FetchType.EAGER, cascade=CascadeType.REMOVE) //EAGER 전략에 의해 POSTS가 불러질때 REPLY도 불러짐
     @OrderBy("id asc")// 댓글 오름차순 정렬
     //posts와 reply 무한 참조 방지

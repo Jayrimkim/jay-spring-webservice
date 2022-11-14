@@ -28,11 +28,6 @@ public class User extends BaseTimeEntity {
     @Column
     private String picture;
 
-
-  /*  //댓글
-    @OneToMany(mappedBy = "user")
-    private List<Reply> replyList;
-*/
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
