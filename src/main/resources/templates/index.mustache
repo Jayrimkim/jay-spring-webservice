@@ -25,6 +25,7 @@
                 <th>제목</th>
                 <th>작성자</th>
                 <th>최종수정일</th>
+                <th>조회수</th>
             </tr>
             </thead>
             <tbody id="tbody">
@@ -34,6 +35,7 @@
                     <td><a href="/posts/read/{{id}}">{{title}}</a></td>
                     <td>{{author}}</td>
                     <td>{{modifiedDate}}</td>
+                    <td>{{hit}}</td>
                 </tr>
             {{/posts}}
             </tbody>
@@ -41,6 +43,23 @@
 
         <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
     </div>
+</div>
+ <!--페이지-->
+{{! Page }}
+<div class="pagination justify-content-center">
+    {{#hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
+    {{/hasPrev}}
+    {{^hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
+    {{/hasPrev}}
+
+    {{#hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
+    {{/hasNext}}
+    {{^hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+    {{/hasNext}}
 </div>
 
 {{>layout/footer}}

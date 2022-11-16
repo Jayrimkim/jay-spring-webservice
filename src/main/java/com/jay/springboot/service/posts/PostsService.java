@@ -4,6 +4,8 @@ import com.jay.springboot.domain.posts.Posts;
 import com.jay.springboot.domain.posts.PostsRepository;
 import com.jay.springboot.web.dto.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,4 +63,24 @@ public class PostsService {
     public Posts PostsReadResponseDto(Long id) {
         return postsRepository.findById(id).get();
     }
+
+    /*조회수*/
+    @Transactional
+    public int updateHit(Long id){
+        return postsRepository.updateHit(id);
+    }
+
+    /*페이징*/
+    @Transactional(readOnly = true)
+    public Page<Posts> pageList(Pageable pageable){
+        return postsRepository.findAll(pageable);
+    }
+
+    /*검색*/
+    @Transactional
+    public Page<Posts> search(String keyword,Pageable pageable){
+        Page<Posts> postsList = postsRepository.findByTitleContaining(keyword,pageable);
+        return postsList;
+    }
+
 }

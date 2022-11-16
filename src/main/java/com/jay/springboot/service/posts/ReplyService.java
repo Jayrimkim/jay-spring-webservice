@@ -46,17 +46,15 @@ public class ReplyService {
         return id;
     }
 
-    /*댓글 DELETE*/
-    @Transactional
-    public void replyDelete(Long id) {
-        Reply reply = replyRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 댓글이 존재하지 않습니다." + id));
 
-        replyRepository.delete(reply);
-    }
 
     public ReplyResponseDto findById(Long id) {
         Reply entity = replyRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new ReplyResponseDto(entity);
+    }
+/*댓글 DELETE*/
+    public void replyDelete(Long id) {
+        replyRepository.deleteById(id);
     }
 }

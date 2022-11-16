@@ -35,7 +35,7 @@ public class ReplyApiController {
     }
 
     /*DELETE reply*/
-    @DeleteMapping("/api/v1/posts/{id}/reply/{id}")
+    @DeleteMapping("/api/v1/posts/{post.id}/reply/{id}")
     public ResponseEntity replyDelete(@PathVariable Long id){
         replyService.replyDelete(id);
         return ResponseEntity.ok(id);

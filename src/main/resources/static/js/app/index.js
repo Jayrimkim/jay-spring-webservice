@@ -20,10 +20,6 @@ var main = {
         $('#btn-reply-update').on('click',function (){
             _this.replyUpdate();
         });
-
-        $('#btn-reply-delete').on('click',function (){
-            _this.replyDelete();
-        });
     },
     save : function () {
         var data = {
@@ -68,7 +64,9 @@ var main = {
     },
     delete : function () {
         var id = $('#id').val();
+const con_check = confirm("글을 삭제하시겠습니까?");
 
+if (con_check===true){
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/posts/'+id,
@@ -80,6 +78,7 @@ var main = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
+    }
     },
 
     replySave : function () {
@@ -126,17 +125,12 @@ var main = {
             },
 
     replyDelete : function (postsId,commentId) {
-
+            alert(commentId);
             const con_check = confirm("삭제하시겠습니까?");
-
-            var id = $('#postsId').val();
-            var commentId = $('#commentId').val();
-
          if (con_check===true){
             $.ajax({
                 type: 'DELETE',
-                url: '/api/v1/posts/'+ id +'/reply/' + commentId,
-                contentType:'application/json; charset=utf-8',
+                url: '/api/v1/posts/'+ postsId +'/reply/' + commentId,
             }).done(function() {
                 alert('댓글이 삭제되었습니다.');
                 window.location.reload();
