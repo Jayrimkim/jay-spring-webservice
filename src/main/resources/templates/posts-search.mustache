@@ -2,6 +2,7 @@
 <div class="container col-md-8 col-lg-8">
 <!-- 목록 출력 영역 -->
 <table class="table table-horizontal table-bordered">
+{{#searchList}}
     <thead class="thead-strong">
     <tr>
         <th>게시글번호</th>
@@ -12,7 +13,6 @@
     </tr>
     </thead>
     <tbody id="tbody">
-    {{#searchList}}
         <tr>
             <td>{{id}}</td>
             <td><a href="/posts/read/{{id}}">{{title}}</a></td>
@@ -23,7 +23,9 @@
     {{/searchList}}
     </tbody>
 </table>
-
+{{^searchList}}
+    <p>검색 결과가 없습니다.</p>
+{{/searchList}}
 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
 </div>
 

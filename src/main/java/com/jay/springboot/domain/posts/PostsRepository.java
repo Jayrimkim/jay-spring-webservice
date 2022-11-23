@@ -20,4 +20,6 @@ public interface PostsRepository extends JpaRepository<Posts,Long> {
 
     Page<Posts> findByTitleContaining(String keyword, Pageable pageable);
 
+
+
 }

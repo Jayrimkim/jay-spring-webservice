@@ -47,7 +47,7 @@ public class ReplyService {
     }
 
 
-
+/*댓글 READ*/
     public ReplyResponseDto findById(Long id) {
         Reply entity = replyRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 

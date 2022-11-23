@@ -20,6 +20,11 @@ var main = {
         $('#btn-reply-update').on('click',function (){
             _this.replyUpdate();
         });
+
+        $('#btn-scrap').on('click',function(){
+            _this.scrapSave();
+        });
+
     },
     save : function () {
         var data = {
@@ -27,7 +32,6 @@ var main = {
             author: $('#author').val(),
             content: $('#content').val()
         };
-
         $.ajax({
             type: 'POST',
             url: '/api/v1/posts',
@@ -125,7 +129,6 @@ if (con_check===true){
             },
 
     replyDelete : function (postsId,commentId) {
-            alert(commentId);
             const con_check = confirm("삭제하시겠습니까?");
          if (con_check===true){
             $.ajax({
@@ -140,7 +143,40 @@ if (con_check===true){
             }
         },
 
+    scrapSave : function () {
+                var data = {
+                postsId:$('#id').val(),
+                title: $('#title').val(),
+                };
 
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/v1/scrap/',
+                    contentType:'application/json; charset=utf-8',
+                    data: JSON.stringify(data)
+                }).done(function() {
+                    alert('스크랩되었습니다.');
+                    window.location.reload();
+                }).fail(function (error) {
+                    alert(JSON.stringify(error));
+                });
+
+    },
+
+    scrapDelete :function(id){
+       const con_check = confirm("스크랩을 삭제하시겠습니까?");
+             if (con_check===true){
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/v1/posts/scrap/'+id,
+                }).done(function() {
+                    alert('스크랩이 삭제되었습니다.');
+                    window.location.reload();
+                }).fail(function (error) {
+                    alert(JSON.stringify(error));
+                });
+                }
+    }
 };
 
 main.init();

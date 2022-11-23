@@ -4,9 +4,7 @@
 <div class="container">
     <div class="text-center">
         <h5 class="display-1 mt-5 mb-4">가방 시작코 계산기</h5>
-        <p>게이지를 아시나요? 게이지란 뜨개질의 어쩌구저쩌구 설명이들어갈칸입니다 하하하 ㅇ호호호호 ㅎ히히히ㅣ히히히히
-            하하하하 호호호 히히히히히히
-            하하하ㅏ </p>
+        <p>원형/타원형의 뜨개질 코바늘 가방 바닥을 만들 때 쓰는 계산기입니다.</p>
     </div>
 </div>
 
@@ -61,7 +59,7 @@
                     <label for="intAllSt" class="col-form-label">총 코수</label>
                 </div>
                 <div class="col-xs-1">
-                    <input type="number" id="intAllSt" class="form-control" onkeyup="javascript:fnCalBag();"
+                    <input type="number" id="intAllSt" class="form-control"
                            aria-describedby="intAllStHelpInline">
                 </div>
                 <div class="col-auto">
@@ -70,10 +68,18 @@
     </span>
                 </div>
             </div>
+            <button type="button" class="btn btn-primary" id="cal-circle">시작코 계산하기</button>
+            <button type="button" class="btn btn-primary" id="cal-ecllipse">총 코수 계산하기</button>
 
             <p>떠야 할 시작코는 <span id="resultIntSt"></span>코</p>
 
         </div>
+
+
+
+
+
+        <!--타원뜨기-->
         <div class="tab-pane fade" id="ellipse">
             <p>타원 뜨기의 예제 페이지 입니다</p>
             <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus

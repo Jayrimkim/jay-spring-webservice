@@ -44,7 +44,7 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
-    /*게시글 리스트 조회*/
+    /*게시글 리스트 READ*/
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
@@ -58,7 +58,7 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
-    /*특정 게시글 상세 조회*/
+    /*특정 게시글 상세 READ*/
     @Transactional(readOnly = true)
     public Posts PostsReadResponseDto(Long id) {
         return postsRepository.findById(id).get();

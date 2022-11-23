@@ -20,7 +20,7 @@ public class PostsApiController {
     }
 
 
-    /*READ*/
+    /*게시글 상세 READ*/
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);

@@ -3,8 +3,10 @@ package com.jay.springboot.web;
 import com.jay.springboot.config.auth.LoginUser;
 import com.jay.springboot.config.auth.dto.SessionUser;
 import com.jay.springboot.domain.posts.Posts;
+import com.jay.springboot.domain.scrap.Scrap;
 import com.jay.springboot.service.posts.PostsService;
 import com.jay.springboot.service.posts.ReplyService;
+import com.jay.springboot.service.posts.ScrapService;
 import com.jay.springboot.web.dto.PostsResponseDto;
 import com.jay.springboot.web.dto.PostsSaveRequestDto;
 import com.jay.springboot.web.dto.ReplyRequestDto;
@@ -30,6 +32,7 @@ public class IndexController {
 
     private final ReplyService replyService;
     private final PostsService postsService;
+    private final ScrapService scrapService;
     private final HttpSession httpSession;
 
 
@@ -110,6 +113,21 @@ public class IndexController {
         model.addAttribute("hasPrev", searchList.hasPrevious());
         return "posts-search";
     }
+
+    /*스크랩 리스트 READ*/
+    @GetMapping("posts/scrap")
+        public String saveScrap(Model model, @PageableDefault(sort = "id",direction= Sort.Direction.DESC) Pageable pageable){
+        Page<Scrap> list = scrapService.pageList(pageable);
+
+        model.addAttribute("scrap",scrapService.pageList(pageable));
+        model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext",list.hasNext());
+        model.addAttribute("hasPrev",list.hasPrevious());
+
+        return "posts-scrap-read";
+        }
+
 
     /*계산기 맵핑*/
     @GetMapping("/cal/gauge")

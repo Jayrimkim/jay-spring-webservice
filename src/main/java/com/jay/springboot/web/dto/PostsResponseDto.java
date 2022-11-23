@@ -13,7 +13,7 @@ public class PostsResponseDto {
     private String content;
     private String author;
 
-    //댓글 추기
+    //댓글 추가
     private List<ReplyResponseDto> reply;
 
     public PostsResponseDto(Posts entity){

@@ -1,0 +1,48 @@
+{{>layout/header}}
+<div class="container col-md-8 col-lg-8">
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+
+            <thead class="thead-strong">
+            <tr>
+                <th>스크랩 순서</th>
+                <th>제목</th>
+                <th>스크랩 날짜</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+        <tbody id="tbody">
+    {{#scrap}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/posts/read/{{postsId}}">{{title}}</a></td>
+            <td>{{createdDate}}</td>
+            <td><button onclick="main.scrapDelete({{id}})" class="badge">삭제</button></td>
+        </tr>
+    {{/scrap}}
+    </tbody>
+    </table>
+
+    {{^scrap}}
+        <p>스크랩 한 게시물이 없습니다.</p>
+    {{/scrap}}
+</div>
+
+{{! Page }}
+<div class="pagination justify-content-center">
+    {{#hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
+    {{/hasPrev}}
+    {{^hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
+    {{/hasPrev}}
+
+    {{#hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
+    {{/hasNext}}
+    {{^hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+    {{/hasNext}}
+</div>
+
+{{>layout/footer}}
