@@ -1,11 +1,15 @@
 # 🧶 Spring KNIT Webservice
-![](https://velog.velcdn.com/images/dev_rimkim/post/3a85474b-82dc-4818-b817-f4c84c940137/image.png)
+![](https://velog.velcdn.com/images/dev_rimkim/post/5196ee8d-356a-4b3e-9569-89804860bcee/image.png)
 
-[![Github Badge](https://img.shields.io/badge/GITHUB-181717.svg?&style=for-the-badge&logo=GitHub&logoColor=white&link=https://github.com/Jayrimkim/jay-spring-webservice)](https://github.com/Jayrimkim/jay-spring-webservice)
 
-<img href="https://velog.io/@dev_rimkim/series/%EB%B0%B1%EC%97%94%EB%93%9C-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0" alt="Html" src ="https://img.shields.io/badge/My Blog-FF8800.svg?&style=for-the-badge&logo=Micro.blog&logoColor=white"/>
+[👾깃허브](https://github.com/Jayrimkim/jay-spring-webservice)
 
-[사이트 구경하기](https://ec2-13-124-137-216.ap-northeast-2.compute.amazonaws.com:8080)
+[💻블로그 코드 정리](https://velog.io/@dev_rimkim/series/%EB%B0%B1%EC%97%94%EB%93%9C-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+
+
+
+
+[🧵사이트 구경하기](https://ec2-13-124-137-216.ap-northeast-2.compute.amazonaws.com:8080)
 ***
 
 ## 프로젝트 소개
@@ -35,7 +39,8 @@ MVC 패턴
 ## 주요 기능 상세 소개
 
 #### 게시판 CRUD
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/60aef5ca-539a-4104-b3af-dda9e8c51f75/image.gif)
+
 
 Posts 테이블 생성 후,
 Dto 클래스를 통해 데이터를 주고받는다.
@@ -44,8 +49,11 @@ Controller단에서 API 요청을 받는다.
 
 JPA Auditing으로 글 작성 시간을 자동화한다.
 
+
+
 #### 댓글 CRUD
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/8032b0b8-9655-4e62-bb5c-5bd8d6938f88/image.gif)
+
 
 Posts와 reply테이블은 1(Posts):N(Reply)로 조인한다.
 
@@ -53,30 +61,41 @@ Posts와 reply테이블은 1(Posts):N(Reply)로 조인한다.
 
 
 
+
+
 #### 페이징
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/b60703cb-f025-404e-9d41-71bea37d4d56/image.gif)
+
 게시글이 많은 경우 편리하게 볼 수 있도록 페이징 기능을 구현했다.
 
 #### 검색
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/b5e275b5-be03-4c9e-a068-0cfeaf464430/image.gif)
+
 검색 메소드를 이용해 전체 게시글 중 검색을 구현했다.
 
 #### 스크랩
 
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/48afc654-cda4-4a9f-9fd7-e833a72b4351/image.gif)
+
 댓글과 비슷한 아이디어로 접근했지만 다른점은, 한 개의 게시물은 한 번만 스크랩 될 수 있다는 것이다. (1:1 조인)
 
 게시글을 읽다 스크랩 버튼을 누르면 스크랩 완료 알림창이 뜨고, 스크랩 조회 전용 페이지로 이동하면 그동안 스크랩한 게시글의 목록이 나온다.
 
 #### 뜨개질 계산기
 
-(사진)
+![](https://velog.velcdn.com/images/dev_rimkim/post/6f7e2a68-374a-4345-b061-5e4c946bceb9/image.gif)
 
-뜨개질로 가방을 만들기 위해서는 원형의 바닥뜨기가 필수이다. 정교한 패턴의 가방을 만들어야 하는 경우, 몇 코로 시작할것인지 계산이 필수적이기 때문에 mustache와 js로 간단하게 프론트엔드단에서 계산기를 구현했다.
 
-버튼을 누르면 계산 결과가 alret창에 나오기 때문에 편하게 데이터를 확인하도록 했다.
+뜨개질로 정교한 패턴의 가방을 만들어야 하는 경우, 몇 코로 시작할것인지 계산이 필수적이기 때문에 mustache와 js로 간단하게 프론트엔드에서 계산기를 구현했다.
+
+버튼을 누르면 계산 결과가 alret창에 나오기 때문에 편하게 데이터를 확인할 수 있다.
 
 #### OAuth 2.0 네이버, 구글 로그인
+
+따로 회원 정보를 관리하지 않고, 소셜 로그인을 통해 간편하게 구현했다.
+
+#### Front-end
+Bootstrap을 이용해 반응형으로 제작했다.
 
 ## 문제와 나아갈 길
 
@@ -91,12 +110,17 @@ Posts와 reply테이블은 1(Posts):N(Reply)로 조인한다.
 
 #### 개선점
 
-게시글 스크랩시 분류
+게시글 스크랩시 주제 별 분류
+작성자만 글 수정/삭제하기
 
 ## 참고
 
+<도서>
 스프링 부트와 AWS로 혼자 구현하는 웹 서비스, 이동욱, 프리렉
 
-dev-coco tistory
+<블로그>
+dev-coco tistory : https://dev-coco.tistory.com/
 
-유튜브 
+<유튜브>
+한코딩 https://youtu.be/frI5CoZe-vE
+코딩의 신 https://youtu.be/hmSPJHtZyp4
