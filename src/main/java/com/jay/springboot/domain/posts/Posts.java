@@ -1,13 +1,11 @@
 package com.jay.springboot.domain.posts;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jay.springboot.domain.BaseTimeEntity;
 import com.jay.springboot.domain.reply.Reply;
 import com.jay.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,6 +30,12 @@ public class Posts extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0",nullable=false)
     private int hit;
 
+    /*유저 구분*/
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
+
+    /*댓글 , 매핑 여기다 함(성능 위해)*/
     @OneToMany(mappedBy = "posts",fetch=FetchType.EAGER, cascade=CascadeType.REMOVE) //EAGER 전략에 의해 POSTS가 불러질때 REPLY도 불러짐
     @OrderBy("id asc")// 댓글 오름차순 정렬
     //posts와 reply 무한 참조 방지

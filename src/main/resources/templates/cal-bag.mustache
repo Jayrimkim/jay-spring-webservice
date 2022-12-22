@@ -29,7 +29,7 @@
                     <label for="intSt" class="col-form-label">시작코</label>
                 </div>
                 <div class="col-xs-1">
-                    <input type="number" id="intSt" class="form-control" onkeyup="javascript:fn_calBag();"
+                    <input type="number" id="intSt" class="form-control"
                            aria-describedby="stHelpInline">
                 </div>
                 <div class="col-auto">
@@ -44,7 +44,7 @@
                     <label for="intAllRow" class="col-form-label">총 단수</label>
                 </div>
                 <div class="col-xs-1">
-                    <input type="number" id="intAllRow" class="form-control" onkeyup="javascript:fn_calBag();"
+                    <input type="number" id="intAllRow" class="form-control"
                            aria-describedby="intAllRowHelpInline">
                 </div>
                 <div class="col-auto">
@@ -68,10 +68,8 @@
     </span>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" id="cal-circle">시작코 계산하기</button>
-            <button type="button" class="btn btn-primary" id="cal-ecllipse">총 코수 계산하기</button>
-
-            <p>떠야 할 시작코는 <span id="resultIntSt"></span>코</p>
+            <button type="button" class="btn btn-primary" id="btn-cal-circle" onclick="main.calCircle(intAllSt,intAllRow)">시작코 계산하기</button>
+            <button type="button" class="btn btn-primary" id="btn-cal-ellipse" onclick="main.calEllipse(intSt,intAllRow)">총 코수 계산하기</button>
 
         </div>
 
@@ -81,9 +79,56 @@
 
         <!--타원뜨기-->
         <div class="tab-pane fade" id="ellipse">
-            <p>타원 뜨기의 예제 페이지 입니다</p>
-            <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus
-                ut facilisis tristique.</p>
+
+            <p>시작코 구하기 : 총 단수 + 총 코수 입력 </p>
+            <p>총 코수 구하기 : 시작코 + 총 단수 입력</p>
+            <div class="row g-3 align-items-center mt-3 mb-3">
+                <div class="col-auto">
+                    <label for="intSt" class="col-form-label">시작코</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="number" id="intSt" class="form-control"
+                           aria-describedby="stHelpInline">
+                </div>
+                <div class="col-auto">
+    <span id="stHelpInline" class="form-text">
+      시작할 사슬의 개수를 입력해주세요
+    </span>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-3 mb-3">
+                <div class="col-auto">
+                    <label for="intAllRow" class="col-form-label">총 단수</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="number" id="intAllRow" class="form-control"
+                           aria-describedby="intAllRowHelpInline">
+                </div>
+                <div class="col-auto">
+    <span id="intAllRowHelpInline" class="form-text">
+      떠야할 총 단수를 입력해주세요. 1단은 늘림이 시작되는 첫 단입니다.
+    </span>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-3 mb-3">
+                <div class="col-auto">
+                    <label for="intAllSt" class="col-form-label">총 코수</label>
+                </div>
+                <div class="col-xs-1">
+                    <input type="number" id="intAllSt" class="form-control"
+                           aria-describedby="intAllStHelpInline">
+                </div>
+                <div class="col-auto">
+    <span id="intAllStHelpInline" class="form-text">
+      타원을 다 떴을때 총 코수를 입력해주세요.
+    </span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-cal-circle" onclick="main.calCircle(intAllSt,intAllRow)">시작코 계산하기</button>
+            <button type="button" class="btn btn-primary" id="btn-cal-ellipse" onclick="main.calEllipse(intSt,intAllRow)">총 코수 계산하기</button>
+
         </div>
     </div>
 </div>

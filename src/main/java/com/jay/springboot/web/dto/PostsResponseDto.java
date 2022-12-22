@@ -25,4 +25,5 @@ public class PostsResponseDto {
         //댓글 추가
         this.reply=entity.getReply().stream().map(ReplyResponseDto::new).collect(Collectors.toList());
     }
+
 }

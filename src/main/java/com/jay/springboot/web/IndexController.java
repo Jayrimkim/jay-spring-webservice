@@ -75,12 +75,12 @@ public class IndexController {
     public String postsRead(@PathVariable Long id, Model model){
         PostsResponseDto dto=postsService.findById(id);
 
-        //조회수
+        /*조회수*/
         postsService.updateHit(id);
 
+        /*댓글*/
         List<ReplyResponseDto> reply=dto.getReply();
 
-        /*댓글*/
         if (reply != null && !reply.isEmpty()){
             model.addAttribute("reply",reply);
         }

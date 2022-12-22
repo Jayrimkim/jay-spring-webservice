@@ -1,5 +1,7 @@
 package com.jay.springboot.web;
 
+import com.jay.springboot.config.auth.LoginUser;
+import com.jay.springboot.config.auth.dto.SessionUser;
 import com.jay.springboot.service.posts.PostsService;
 import com.jay.springboot.web.dto.PostsReadResponseDto;
 import com.jay.springboot.web.dto.PostsResponseDto;

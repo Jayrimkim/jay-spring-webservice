@@ -2,6 +2,8 @@ package com.jay.springboot.service.posts;
 
 import com.jay.springboot.domain.posts.Posts;
 import com.jay.springboot.domain.posts.PostsRepository;
+import com.jay.springboot.domain.user.User;
+import com.jay.springboot.domain.user.UserRepository;
 import com.jay.springboot.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class PostsService {
     private final PostsRepository postsRepository;
+    private final UserRepository userRepository;
 
     /*게시글 CREATE*/
     @Transactional

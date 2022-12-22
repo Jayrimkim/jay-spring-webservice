@@ -176,7 +176,26 @@ if (con_check===true){
                     alert(JSON.stringify(error));
                 });
                 }
+    },
+
+    calCircle:function(intAllSt,intAllRow){
+        var a = $('#intAllSt').val();
+        var b = $('#intAllRow').val();
+
+        var resultIntSt = Number(a)-Number(b*6);
+
+        alert('떠야 할 시작코는 '+resultIntSt+'코 입니다.');
+
+    },
+
+    calEllipse:function(intSt,intAllRow){
+        var c = $('#intSt').val();
+        var d = $('#intAllRow').val();
+        var resultIntSt = Number(c)+Number(d*6);
+
+        alert('떠야 할 총 코수는 '+resultIntSt+'코 입니다.');
     }
+
 };
 
 main.init();
